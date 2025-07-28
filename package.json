@@ -1,0 +1,36 @@
+{
+  "name": "graphql-react",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "ts-node": "./node_modules/.bin/ts-node",
+    "prisma:g": "npx prisma generate",
+    "prisma:m": "npx prisma migrate deploy",
+    "start": "npx ts-node ./dev.ts",
+    "start2": "npx nodemon --config ./nodemon.json",
+    "dev": "npx ts-node ./dev.ts",
+    "dev2": "npx nodemon --config ./nodemon.json",
+    "studio": "npx prisma studio"
+  },
+  "devDependencies": {
+    "@apollo/server": "^4.12.2",
+    "@as-integrations/express5": "^1.1.1",
+    "@prisma/client": "^6.11.1",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.0.10",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10",
+    "prisma": "^6.12.0",
+    "ts-loader": "^9.5.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
+    "vercel": "^44.6.3"
+  }
+}
