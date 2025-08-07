@@ -377,7 +377,7 @@ datasource db {
 
 rm -rf prisma/migrations
 
-npx prisma init --datasource-provider postgresql // これはprisma.schemaを書き換えているので今回不要
+npx prisma init --datasource-provider postgresql // これは先ほどprisma.schemaを手動で書き換えているので今回不要
 
 npx prisma generate
 
@@ -481,7 +481,7 @@ mutation DeleteTodo($deleteTodoId: Int!) {
 ### Vercelコマンドの主なもの
 
 ```zsh
-npx vercel dev // ローカル開発環境を立ち上げる
+npx vercel dev // ローカル開発環境を立ち上げる(DBはvercelで指定したpostgresqlとなる)
 
 npx vercel login
 
@@ -490,6 +490,8 @@ npx vercel pull // プロジェクト設定と環境変数をローカルに落�
 npx vercel build // ローカルでプロジェクトを構築する(./vercel/output/が生成される)
 
 npx vercel build --prod
+
+// buildを行なってから...
 
 npx vercel (deploy) // previewモードでデプロイする
 
