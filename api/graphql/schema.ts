@@ -49,9 +49,10 @@ const resolvers: Resolvers = {
 
     getTodos: async ( _: typeTodo, __: typeTodo[], context: Context ): Promise<{ id: number, title: string, completed: boolean; }[]> => {
       // sql文を直接操作するのではなく、prismaのメソッドを介して操作する。
-      const todos: typeTodo[] = await context.prismaInstance.todo.findMany();
+      const todos: typeTodo[] = await context.prismaInstance.todo.findMany({
+        orderBy: { id: 'asc' }
+      });
 
-      // DBから取ってきて必要なものだけ使う
       return todos.map( todo => ( {
         id: todo.id,
         title: todo.title,

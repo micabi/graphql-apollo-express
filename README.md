@@ -489,11 +489,11 @@ npx vercel pull // プロジェクト設定と環境変数をローカルに落�
 
 npx vercel build // ローカルでプロジェクトを構築する(./vercel/output/が生成される)
 
-npx vercel build --prod
+NODE_ENV=production npx vercel build --prod
 
 // buildを行なってから...
 
 npx vercel (deploy) // previewモードでデプロイする
 
-npx vercel (deploy) --prod // 本番モードでデプロイする
+NODE_ENV=production npx vercel (deploy) --prod // 本番モードでデプロイする
 ```

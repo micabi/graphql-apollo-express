@@ -14,6 +14,7 @@ import { RedisReply, RedisStore } from "rate-limit-redis";
 import http from "http";
 import cors from "cors";
 import moment from "moment";
+import "moment-timezone"
 import "dotenv/config";
 import { PrismaClient } from "@prisma/client";
 import { typeDefs, resolvers } from "./graphql/schema";
@@ -57,7 +58,8 @@ const apiLimitter: RateLimitRequestHandler = rateLimit( {
 
     const agent: string = ( req.headers[ 'user-agent' ] ) ? req.headers[ 'user-agent' ] : 'undefined';
     const identifier: number = moment().unix();
-    const time: string = moment().format( "YYYY-MM-DD HH:mm:ssZ" );
+    const time: string = moment().tz('Asia/Tokyo').format( "YYYY-MM-DD HH:mm:ssZ" );
+    console.log(time);
 
     if ( req.query.apiKey ) {
       console.log( `API Key: ${ req.query.apiKey }. Rate limit exceeded for ${ req.query.apiKey }` );
